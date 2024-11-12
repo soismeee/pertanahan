@@ -15,7 +15,7 @@
                     <input type="hidden" name="id_user" value="<?= $user['id_user']; ?>">
                     <div class="form-group">
                         <label>nama user</label>
-                        <input type="text" name="nama_user" class="form-control" placeholder="nama user" required autofocus value="<?= $user['nama_user']; ?>">
+                        <input type="text" name="nama_user" class="form-control" placeholder="nama user" required value="<?= $user['nama_user']; ?>">
                     </div>
                     <div class="form-group">
                         <label>Email</label>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <label>No Hp</label>
-                        <input type="text" name="no_hp" class="form-control" placeholder="No Hp" required value="<?= $user['no_hp']; ?>">
+                        <input type="text" name="no_hp" class="form-control" placeholder="No Hp" value="<?= $user['no_hp']; ?>">
                     </div>
                     <div class="form-group">
                         <label>NIP</label>
@@ -51,6 +51,10 @@
                                 echo "selected";
                             } ?>>Loket</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label>foto</label>
+                        <input type="file" accept="image/*" name="foto_user" class="form-control" placeholder="foto user">
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-sm">Ubah</button>

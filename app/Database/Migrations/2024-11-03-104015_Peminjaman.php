@@ -26,10 +26,6 @@ class Peminjaman extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
-            'no_shm_shgb' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '100',
-            ],
             'notaris' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',

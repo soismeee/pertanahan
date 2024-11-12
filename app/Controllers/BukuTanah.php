@@ -40,6 +40,7 @@ class BukuTanah extends BaseController
             'jenis' => $this->request->getPost('jenis'),
             'luas' => $this->request->getPost('luas'),
             'pemegang_hak' => $this->request->getPost('pemegang_hak'),
+            'letak' => $this->request->getPost('letak'),
             'desa_id' => $this->request->getPost('desa_id')
         ];
         $this->BukuTanahModel->save($data);
@@ -65,6 +66,7 @@ class BukuTanah extends BaseController
             'jenis' => $this->request->getPost('jenis'),
             'luas' => $this->request->getPost('luas'),
             'pemegang_hak' => $this->request->getPost('pemegang_hak'),
+            'letak' => $this->request->getPost('letak'),
             'desa_id' => $this->request->getPost('desa_id')
         ];
 

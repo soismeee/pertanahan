@@ -33,16 +33,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label>No SHM/SHGB</label>
-                        <input type="text" name="no_shm_shgb" class="form-control" placeholder="no_shm_shgb" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="buku_tanah_id">Desa</label>
+                        <label for="buku_tanah_id">Buku tanah</label>
                         <select id="buku_tanah_id" name="buku_tanah_id" class="form-control">
                             <option value="">Select Buku tanah</option>
                             <?php foreach($buku_tanah as $d): ?>
-                            <option value="<?= $d['id_buku_tanah'] ?>"><?= $d['kode_buku'] ?></option>
+                            <option value="<?= $d['id_buku_tanah'] ?>" data-kode_buku="<?= $d['kode_buku']?>"><?= $d['kode_buku'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -60,5 +55,4 @@
 <!-- /.box -->
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <?= $this->endSection(); ?>

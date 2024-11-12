@@ -28,7 +28,7 @@
                     <tr>
                         <td width="15%">Nomor</td>
                         <td width="5%">:</td>
-                        <td width="80%"><?= $data[0]['no_shm_shgb']; ?></td>
+                        <td width="80%"><?= $data[0]['kode_buku']; ?></td>
                     </tr>
                     <tr>
                         <td width="15%">Notaris</td>

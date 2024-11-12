@@ -29,6 +29,9 @@ class User extends BaseController
     public function save()
     {
         $model = new UserModel();
+        $file = $this->request->getFile('foto_user');
+		$randomName = $file->getRandomName();
+        $file->move('foto', $randomName);
         $data = [
             'nama_user' => $this->request->getPost('nama_user'),
             'email' => $this->request->getPost('email'),
@@ -37,6 +40,7 @@ class User extends BaseController
             'bagian' => $this->request->getPost('bagian'),
             'level' => $this->request->getPost('level'),
             'no_hp' => $this->request->getPost('no_hp'),
+            'foto_user' => $randomName
         ];
         // dd($data);
         $model->save($data);
@@ -57,6 +61,7 @@ class User extends BaseController
     public function update()
     {
         $model = new UserModel();
+
         $id = $this->request->getPost('id_user');
         $data = [
             'nama_user' => $this->request->getPost('nama_user'),
@@ -67,6 +72,14 @@ class User extends BaseController
             'bagian' => $this->request->getPost('bagian'),
             'no_hp' => $this->request->getPost('no_hp'),
         ];
+
+        if($this->request->getFile('foto_user') !== null){
+            $file = $this->request->getFile('foto_user');
+		    $randomName = $file->getRandomName();
+            $file->move('foto', $randomName);
+            $data['foto_user'] = $randomName;
+        }
+
         // dd($data);
         $model->update($id, $data);
         session()->setFlashdata('success', 'Data berhasil diupdate');

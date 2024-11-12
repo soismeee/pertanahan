@@ -50,7 +50,6 @@ class Peminjaman extends BaseController
             'user_id' => session()->get('id_user'),
             'buku_tanah_id' => $this->request->getPost('buku_tanah_id'),
             'jenis_permohonan' => $this->request->getPost('jenis_permohonan'),
-            'no_shm_shgb' => $this->request->getPost('no_shm_shgb'),
             'notaris' => $this->request->getPost('notaris'),
             'tanggal_peminjaman' => date('Y-m-d')
            
@@ -85,7 +84,6 @@ class Peminjaman extends BaseController
         $data = [
             'buku_tanah_id' => $this->request->getPost('buku_tanah_id'),
             'jenis_permohonan' => $this->request->getPost('jenis_permohonan'),
-            'no_shm_shgb' => $this->request->getPost('no_shm_shgb'),
             'notaris' => $this->request->getPost('notaris'),
             'tanggal_peminjaman' => $this->request->getPost('tanggal_peminjaman')
         ];

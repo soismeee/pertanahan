@@ -18,7 +18,14 @@
                     </div>
                     <div class="form-group">
                         <label>Jenis</label>
-                        <input type="text" name="jenis" class="form-control" placeholder="jenis" required>
+                        <select class="form-control" name="jenis">
+                            <option disabled selected>-Pilih-</option>
+                            <option value="hak milik"> Hak Milik </option>
+                            <option value="hak guna bangunan"> Hak Guna Bangunan </option>
+                            <option value="hak pakai"> Hak Pakai </option>
+                            <option value="hak tanggungan"> Hak Tanggunan </option>
+                            <option value="waris"> Waris </option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Luas</label>
@@ -27,6 +34,10 @@
                     <div class="form-group">
                         <label>Pemegang hak</label>
                         <input type="text" name="pemegang_hak" class="form-control" placeholder="Pemegang Hak" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Letak</label>
+                        <input type="text" name="letak" class="form-control" placeholder="letak" required>
                     </div>
                     <div class="form-group">
                         <label>Desa</label>

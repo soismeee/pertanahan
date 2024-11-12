@@ -30,6 +30,7 @@
                     <th class="text-center">Email</th>
                     <th class="text-center">No Hp</th>
                     <th class="text-center">Level</th>
+                    <th width="10%" class="text-center">Foto</th>
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
@@ -52,6 +53,7 @@
                             echo "Karyawan";
                         } ?>
                     </td>
+                    <td><img src="/foto/<?= $value['foto_user']; ?>" alt="Foto user" width="50%"></td>
                     <td>
                         <a href="<?= base_url('user/edit/' . $value['id_user']); ?>" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
                         <a href="<?= base_url('user/delete/' . $value['id_user']); ?>" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>

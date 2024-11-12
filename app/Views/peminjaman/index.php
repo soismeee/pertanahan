@@ -13,6 +13,7 @@
                     <option value="pinjam">Pengajuan</option>
                     <option value="proses">Proses</option>
                     <option value="selesai">Selesai</option>
+                    <option value="tolak">Tolak</option>
                 </select>
             </div>
         </div>
@@ -129,7 +130,7 @@
                         <td>${params.tanggal_peminjaman}</td>
                         <td>${params.nama_user}</td>
                         <td>${params.jenis_permohonan}</td>
-                        <td>${params.no_shm_shgb}</td>
+                        <td>${params.kode_buku}</td>
                         <td>${params.nama_desa}</td>
                         <td>${params.notaris}</td>
                         <td>${isiTglKembali}</td>

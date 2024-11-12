@@ -34,7 +34,7 @@
                 <div id="message"></div>
                 <input type="hidden" name="id" id="id">
                 <div class="form-group has-feedback">
-                    <input type="email" name="email" class="form-control" placeholder="Email" autofocus>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" autofocus>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div style="display: none;" id="ppp" class="form-group has-feedback">
@@ -61,6 +61,7 @@
         $('#ppp').show();
         $('#submit').show();
         $('#cari').hide();
+        $('#email').prop('readonly', true);
     }
 
     $(document).on('click', '#cari', function(e){

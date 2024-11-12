@@ -25,6 +25,7 @@
                     <th class="text-center">Jenis</th>
                     <th class="text-center">Luas</th>
                     <th class="text-center">Pemegang Hak</th>
+                    <th class="text-center">Letak</th>
                     <th class="text-center">Desa</th>
                     <th class="text-center">Action</th>
                 </tr>
@@ -38,6 +39,7 @@
                     <td><?= $value['jenis']; ?></td>
                     <td><?= $value['luas']; ?></td>
                     <td><?= $value['pemegang_hak']; ?></td>
+                    <td><?= $value['letak']; ?></td>
                     <td> <?= $value['nama_kecamatan']; ?> - <?= $value['nama_desa']; ?></td>
                     <td>
                         <a href="<?= base_url('bukutanah/edit/' . $value['id_buku_tanah']); ?>" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-edit"></i></a>

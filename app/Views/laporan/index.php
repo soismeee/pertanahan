@@ -172,13 +172,13 @@
                 value    : "<?= $statusPinjamAcc; ?>",
                 color    : '#f56954',
                 highlight: '#f56954',
-                label    : 'ACC'
+                label    : 'TOLAK'
             },
             {
                 value    : "<?= $statusPinjamTolak; ?>",
                 color    : '#00a65a',
                 highlight: '#00a65a',
-                label    : 'TOLAK'
+                label    : 'ACC'
             }
             ]
             var piePoption     = {

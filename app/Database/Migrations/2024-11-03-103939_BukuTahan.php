@@ -30,6 +30,10 @@ class BukuTahan extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
+            'letak' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+            ],
             'desa_id' => [
                 'type'       => 'INT',
                 'unsigned'   => true,

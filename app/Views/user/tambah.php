@@ -8,7 +8,7 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form role="form" action="<?= base_url('user/save') ?>" enctype="multipart/form-data" method="post">
+    <form role="form" action="<?= base_url('user/save') ?>" enctype="multipart/form-data" method="post" enctype="multipart/form-data">
         <div class="box-body">
             <div class="row">
                 <div class="col-md-4">
@@ -44,6 +44,10 @@
                             <option value="karyawan">Karyawan</option>
                             <option value="loket">Loket</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label>foto</label>
+                        <input type="file" accept="image/*" name="foto_user" class="form-control" placeholder="foto user" required autofocus>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-sm">Simpan</button>

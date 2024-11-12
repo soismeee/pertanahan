@@ -65,7 +65,7 @@
         </tr>
         <tr>
             <th>Nomor</th>
-            <td><?= $manajemen[0]['no_shm_shgb']; ?></td>
+            <td><?= $manajemen[0]['kode_buku']; ?></td>
         </tr>
         <tr>
             <th>Notaris</th>

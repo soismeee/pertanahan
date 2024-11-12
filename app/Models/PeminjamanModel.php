@@ -9,7 +9,7 @@ class PeminjamanModel extends Model
 
     protected $table            = 'peminjaman';
     protected $primaryKey       = 'id_peminjaman';
-    protected $allowedFields    = ['id_peminjaman', 'user_id', 'buku_tanah_id', 'jenis_permohonan', 'no_shm_shgb', 'notaris', 'status', 'tanggal_peminjaman', 'tanggal_pengembalian'];
+    protected $allowedFields    = ['id_peminjaman', 'user_id', 'buku_tanah_id', 'jenis_permohonan', 'notaris', 'status', 'tanggal_peminjaman', 'tanggal_pengembalian'];
     
     public function getPeminjaman($id = false)
     {
@@ -42,6 +42,10 @@ class PeminjamanModel extends Model
 
         if ($status !== "All") {
             $query->where('peminjaman.status', $status);
+        }
+
+        if (session()->get('level') == "karyawan") {
+            $query->where('user_id', session()->get('id_user'));
         }
 
         return $query->findAll();

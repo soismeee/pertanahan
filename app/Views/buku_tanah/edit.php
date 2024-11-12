@@ -20,7 +20,13 @@
                     </div>
                     <div class="form-group">
                         <label>Jenis</label>
-                        <input type="text" name="jenis" class="form-control" placeholder="jenis" value="<?= $buku_tanah['jenis']; ?>">
+                        <select class="form-control" name="jenis">
+                            <option value="hak milik" <?= $buku_tanah['jenis'] == "hak milik" ? "selected" : "" ?>> Hak Milik </option>
+                            <option value="hak guna bangunan" <?= $buku_tanah['jenis'] == "hak guna bangunan" ? "selected" : "" ?>> Hak Guna Bangunan </option>
+                            <option value="hak pakai" <?= $buku_tanah['jenis'] == "hak pakai" ? "selected" : "" ?>> Hak Pakai </option>
+                            <option value="hak tanggungan" <?= $buku_tanah['jenis'] == "hak tanggungan" ? "selected" : "" ?>> Hak Tanggunan </option>
+                            <option value="waris" <?= $buku_tanah['jenis'] == "waris" ? "selected" : "" ?>> Waris </option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Luas</label>
@@ -29,6 +35,10 @@
                     <div class="form-group">
                         <label>Pemegang hak</label>
                         <input type="text" name="pemegang_hak" class="form-control" placeholder="Pemegang Hak" value="<?= $buku_tanah['pemegang_hak']; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label>Letak</label>
+                        <input type="text" name="letak" class="form-control" placeholder="letak" value="<?= $buku_tanah['letak']; ?>">
                     </div>
                     <div class="form-group">
                         <label>Desa</label>
