@@ -62,10 +62,10 @@
         function loading(){
             $('#data-peminjaman table tbody').append(
                 `<tr>
-                    <td style="display: none;" colspan="9" class="text-center loading">Loading...</td>
+                    <td style="display: none;" colspan="10" class="text-center loading">Loading...</td>
                 </tr>
                 <tr>
-                    <td colspan="9" class="text-center pesan">Tidak ada data</td>
+                    <td colspan="10" class="text-center pesan">Tidak ada data</td>
                 </tr>`
             )
         }
@@ -90,19 +90,19 @@
                     data.forEach((params, index) => {
                         let status = params.status;
                         let levelUser = `<?= session()->get('level'); ?>`;
-                        let isiStatus = "Pinjam";
+                        let isiStatus = '<span class="text-primary">Pinjam</span>';
                         let isiTglKembali = "Belum kembali";
                         let isiAction = `<a href="<?= base_url('peminjaman/proses/') ?>${params.id_peminjaman}" class="btn btn-primary btn-xs">proses</i></a>`
 
                         if (status == "proses") {
-                            isiStatus = "Proses"
+                            isiStatus = '<span class="text-warning">Proses</span>'
                         }
                         if (status == "tolak") {
-                            isiStatus = "Tolak"
+                            isiStatus = '<span class="text-danger">Tolak</span>'
                             isiTglKembali = "Tidak dipinjam"
                         }
                         if (status == "selesai") {
-                            isiStatus = "Kembali"
+                            isiStatus = '<span class="text-dark">Kembali</span>'
                         }
 
                         // digunakan untuk menampilkan tanggal kembali
