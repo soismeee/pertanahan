@@ -58,7 +58,7 @@
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li><a href="/Web/profil" class="btn">Profil</a></li>
-                        <!-- <li><a href="/Web/contact" class="btn">Contact</a></li> -->
+                        <li><a href="/Web/contact" class="btn">Contact</a></li>
                         <li><a href="<?= base_url('auth/login') ?>" class="btn"><i class="glyphicon glyphicon-log-in"></i>  Login Pengguna </a></li>
                     </ul>
                 </div>

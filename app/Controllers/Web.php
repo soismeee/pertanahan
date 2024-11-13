@@ -34,6 +34,15 @@ class Web extends BaseController
         ];
         return view('web/profil', $data);
     }
+
+    public function contact()
+    {
+        $data = [
+            'title' => 'Contact',
+            'setting' => $this->settingModel->detailSetting(),
+        ];
+        return view('web/contact', $data);
+    }
     
     public function lupapassword()
     {

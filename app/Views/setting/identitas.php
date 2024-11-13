@@ -16,7 +16,7 @@
         <div class="box-body">
             <?= form_open('setting/saveiden') ?>
             <div class="form-group">
-                <label>Nama Sekolah</label>
+                <label>Nama Kantor</label>
                 <input name="nama" value="<?= $setting['nama'] ?>" class="form-control">
             </div>
             <div class="form-group">
