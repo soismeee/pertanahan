@@ -18,6 +18,10 @@
             <div class="box-body">
               <canvas id="Peminjaman" style="height: 227px; width: 454px;" height="283" width="567"></canvas>
             </div>
+            <ul class="doughnut-legend">
+                <li><span style="background-color:#00a65a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> ACC</li>
+                <li><span style="background-color:#f56954">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Tolak</li>
+            </ul>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
@@ -37,6 +41,10 @@
             <div class="box-body">
               <canvas id="BukuTanah" style="height: 227px; width: 454px;" height="283" width="567"></canvas>
             </div>
+            <ul class="doughnut-legend">
+                <li><span style="background-color:#f39c12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Pinjam</li>
+                <li><span style="background-color:#3c8dbc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Kembali</li>
+            </ul>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->

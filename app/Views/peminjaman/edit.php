@@ -37,12 +37,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>No SHM/SHGB</label>
-                        <input type="text" name="no_shm_shgb" class="form-control" placeholder="no_shm_shgb" value="<?= $peminjaman[0]['no_shm_shgb']; ?>">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="buku_tanah_id">Desa</label>
+                        <label for="buku_tanah_id">Buku tanah</label>
                         <select id="buku_tanah_id" name="buku_tanah_id" class="form-control">
                             <option value="">Select Buku tanah</option>
                             <?php foreach($buku_tanah as $d): ?>

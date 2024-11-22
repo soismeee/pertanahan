@@ -113,6 +113,7 @@
                         
                         if (levelUser == "admin") {
                             isiAction = `
+                            <a href="<?= base_url('peminjaman/proses/') ?>${params.id_peminjaman}" class="btn btn-primary btn-xs">Aksi</i></a>
                             <a href="<?= base_url('peminjaman/edit/') ?>${params.id_peminjaman}" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
                             <a href="<?= base_url('peminjaman/delete/') ?>${params.id_peminjaman}" class="btn btn-danger btn-xs" id="hapus"><i class="fa fa-trash"></i></a>
                             `

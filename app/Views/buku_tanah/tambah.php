@@ -48,7 +48,10 @@
                                 <?php endforeach; ?>
                         </select>
                     </div>
-
+                    <div class="form-group">
+                        <label>Gambar</label>
+                        <input type="file" name="file" class="form-control" required>
+                    </div>
                     <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
                     <a href="<?= base_url('bukutanah') ?>" class="btn btn-success btn-sm">Kembali</a>
                 </div>

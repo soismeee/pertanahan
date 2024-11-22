@@ -54,7 +54,7 @@ class Web extends BaseController
     }
 
     public function cariakun(){
-        $email = $this->UserModel->where('email', $this->request->getPost('email'))->first();
+        $email = $this->UserModel->where('email', $this->request->getPost('email'))->where('no_hp', $this->request->getPost('no_hp'))->first();
         if ($email) {
             return $this->response->setJSON(['status' => 200, 'id' => $email['id_user'], 'message' => 'Akun ditemukan']);
         } else {

@@ -40,6 +40,7 @@ class User extends BaseController
             'bagian' => $this->request->getPost('bagian'),
             'level' => $this->request->getPost('level'),
             'no_hp' => $this->request->getPost('no_hp'),
+            'email_verified' => 1,
             'foto_user' => $randomName
         ];
         // dd($data);

@@ -5,7 +5,7 @@ class BukuTanahModel extends Model
 {
     protected $table            = 'buku_tanah';
     protected $primaryKey       = 'id_buku_tanah';
-    protected $allowedFields    = ['id_buku_tanah', 'kode_buku', 'jenis', 'no', 'desa_id', 'luas', 'pemegang_hak', 'letak'];
+    protected $allowedFields    = ['id_buku_tanah', 'kode_buku', 'jenis', 'gambar', 'no', 'desa_id', 'luas', 'pemegang_hak', 'letak'];
 
 
     public function getBukutanah($id = false)

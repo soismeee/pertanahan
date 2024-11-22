@@ -70,7 +70,7 @@
             </div>
             <div class="form-group has-feedback">
                 <input type="text" name="no_hp" class="form-control" placeholder="No. HP">
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                <span class="glyphicon glyphicon-phone form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
                 <input type="password" name="password" class="form-control" placeholder="Password">
