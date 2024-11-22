@@ -16,6 +16,7 @@ class AuthModel extends Model
         return $this->db->table('users')->where([
             'email'     => $email,
             'password'  => $password,
+            'email_verified' => 1
         ])
             ->get()
             ->getRowArray();

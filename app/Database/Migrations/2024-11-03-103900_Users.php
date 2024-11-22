@@ -22,6 +22,16 @@ class Users extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
+            'email_verified' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+                'default' => 0,
+            ],
+            'email_verification_token' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+                'null'    => true,
+            ],
             'password' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',

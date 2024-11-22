@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\AuthModel;
 
 use \App\Models\SettingModel;
-
+use Config\Services;
 
 class Auth extends BaseController
 {
@@ -62,24 +62,26 @@ class Auth extends BaseController
                         'required' => '{field} Wajib diisi dan tidak boleh kosong !'
                     ]
                 ],
-                'level'     => [
-                    'labels'    => 'Level',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
             ]
         )) {
+
+            $token = bin2hex(random_bytes(16)); // Generate token verifikasi
+
             //jika valid
             $data = array(
                 'nama_user' => $this->request->getPost('nama_user'),
                 'email'     => $this->request->getPost('email'),
                 'no_hp'     => $this->request->getPost('no_hp'),
                 'password'  => $this->request->getPost('password'),
-                'level'     => $this->request->getPost('level'),
+                'level'     => "karyawan",
+                'email_verified'            => 0,
+                'email_verification_token'  => $token
             );
             $this->AuthModel->save_register($data);
+
+            // Kirim email verifikasi
+            $this->sendVerificationEmail($this->request->getPost('email'), $token);
+
             session()->setFlashdata('pesan', 'Registrasi Berhasil');
             return redirect()->to(base_url('Auth/login'));
         } else {
@@ -88,6 +90,41 @@ class Auth extends BaseController
             return redirect()->to(base_url('Auth/register'));
         }
     }
+
+    private function sendVerificationEmail($email, $token)
+    {
+        $emailService = Services::email();
+        $emailService->setFrom('rosyidwilestari808@gmail.com', 'YourApp');
+        $emailService->setTo($email);
+        $emailService->setSubject('Verifikasi Email');
+        $emailService->setMessage("
+            <p>Terima kasih telah mendaftar.</p>
+            <p>Klik link berikut untuk memverifikasi email Anda:</p>
+            <p><a href='" . base_url("/Auth/verify/$token") . "'>Verifikasi Email</a></p>
+        ");
+
+        if (!$emailService->send()) {
+            log_message('error', $emailService->printDebugger(['headers']));
+        }
+    }
+
+    public function verify($token)
+{
+    $db = \Config\Database::connect();
+    $user = $db->table('users')->where('email_verification_token', $token)->get()->getRow();
+
+    if ($user) {
+        // Perbarui status email_verified
+        $db->table('users')->where('id_user', $user->id_user)->update([
+            'email_verified'            => 1,
+            'email_verification_token'  => null,
+        ]);
+
+        return redirect()->to('/auth/login')->with('success', 'Email berhasil diverifikasi. Silakan login.');
+    } else {
+        return redirect()->to('/auth/login')->with('error', 'Token verifikasi tidak valid.');
+    }
+}
 
 
     public function login()
@@ -154,240 +191,5 @@ class Auth extends BaseController
         //logout berhasil
         session()->setFlashdata('pesan', 'Logout suksess...');
         return redirect()->to(base_url('auth/login'));
-    }
-
-
-
-    public function registercalon()
-    {
-        $data = array(
-            'title'     => 'Halaman Registrasi Akun PPDB',
-            'setting'   => $this->settingModel->detailSetting(),
-            
-        );
-        return view('web/view/auth/register', $data);
-    }
-
-    public function save_registercalon()
-    {
-        if ($this->validate(
-            [
-                'no_akta'     => [
-                    'label'     => 'No.Akta',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'nama'     => [
-                    'label'     => 'Nama Lengkap',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'jenis_kelamin'     => [
-                    'label'     => 'Jenis_kelamin',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'agama'     => [
-                    'label'     => 'Agama',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'tempat_lahir'     => [
-                    'label'     => 'Tempat Lahir',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'tanggal_lahir'     => [
-                    'label'     => 'Tanggal Lahir',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'nama_ibu'     => [
-                    'label'     => 'Nama Ibu',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'nama_ayah'     => [
-                    'label'     => 'Nama Ayah',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'pekerjaan_ayah'     => [
-                    'label'     => 'Nama Ibu',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'pekerjaan_ibu'     => [
-                    'label'     => 'Nama Ayah',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'nama_dukuh'     => [
-                    'label'     => 'Nama Dukuh',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'rt/rw'     => [
-                    'label'     => 'RT/RW',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'kecamatan'     => [
-                    'label'     => 'Kecamatan',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-                'kabupaten'     => [
-                    'label'     => 'kabupaten',
-                    'rules'     => 'required',
-                    'errors'    => [
-                        'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                    ]
-                ],
-            ]
-        )) {
-            //jika valid
-            $data = array(
-                'no_akta'           => $this->request->getPost('no_akta'),
-                'nama'              => $this->request->getPost('nama'),
-                'jenis_kelamin'     => $this->request->getPost('jenis_kelamin'),
-                'agama'             => $this->request->getPost('agama'),
-                'tempat_lahir'      => $this->request->getPost('tempat_lahir'),
-                'tanggal_lahir'     => $this->request->getPost('tanggal_lahir'),
-                'nama_ibu'          => $this->request->getPost('nama_ibu'),
-                'nama_ayah'         => $this->request->getPost('nama_ayah'),
-                'pekerjaan_ayah'    => $this->request->getPost('pekerjaan_ayah'),
-                'pekerjaan_ibu'     => $this->request->getPost('pekerjaan_ibu'),
-                'nama_dukuh'        => $this->request->getPost('nama_dukuh'),
-                'rt/rw'             => $this->request->getPost('rt/rw'),
-                'kecamatan'         => $this->request->getPost('kecamatan'),
-                'kabupaten'         => $this->request->getPost('kabupaten'),
-                'status'            => 0,
-                'password'          => $this->request->getPost('no_akta'),
-            );
-            $this->AuthModel->save_registercalon($data);
-            session()->setFlashdata('pesan', 'Registrasi Berhasil');
-            return redirect()->to(base_url('Auth/logincalon'));
-        } else {
-            //jika tidak valid
-            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to(base_url('Auth/registercalon'));
-        }
-    }
-
-
-    public function logincalon()
-    {
-        $data = array(
-            'title' => 'Halaman Login PPDB',
-            'setting' => $this->settingModel->detailSetting(),
-        );
-        return view('web/view/auth/login', $data);
-    }
-
-    public function cek_logincalon()
-    {
-        if ($this->validate([
-            'no_akta'     => [
-                'label'     => 'No.Akta',
-                'rules'     => 'required',
-                'errors'    => [
-                    'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                ]
-            ],
-            'password'     => [
-                'labels'    => 'Password',
-                'rules'     => 'required',
-                'errors'    => [
-                    'required' => '{field} Wajib diisi dan tidak boleh kosong !'
-                ]
-            ],
-        ])) {
-            //jika valid
-            $no_akta    = $this->request->getPost('no_akta');
-            $password   = $this->request->getPost('password');
-            $cek        = $this->AuthModel->logincalon($no_akta, $password);
-            if ($cek) {
-                //jika data cocok
-                session()->set('log', true);
-                session()->set('no_akta', $cek['no_akta']);
-                session()->set('nama', $cek['nama']);
-                session()->set('jenis_kelamin', $cek['jenis_kelamin']);
-                session()->set('agama', $cek['agama']);
-                session()->set('tempat_lahir', $cek['tempat_lahir']);
-                session()->set('tanggal_lahir', $cek['tanggal_lahir']);
-                session()->set('nama_ayah', $cek['nama_ayah']);
-                session()->set('nama_ibu', $cek['nama_ibu']);
-                session()->set('pekerjaan_ayah', $cek['pekerjaan_ayah']);
-                session()->set('pekerjaan_ibu', $cek['pekerjaan_ibu']);
-                session()->set('nama_dukuh', $cek['nama_dukuh']);
-                session()->set('rt/rw', $cek['rt/rw']);
-                session()->set('kecamatan', $cek['kecamatan']);
-                session()->set('kabupaten', $cek['kabupaten']);
-                session()->set('status', $cek['status']);
-                session()->set('level', $cek['level']);
-
-                //login suksess
-                return redirect()->to(base_url('dashpendaftaran'));
-            } else {
-                //jika tidak cocok
-                session()->setFlashdata('warning', 'Login gagal, Pastikan data benar');
-                return redirect()->to(base_url('auth/logincalon'));
-            }
-        } else {
-            //jika tidak valid
-            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to(base_url('auth/logincalon'));
-        }
-    }
-
-    public function logoutcalon()
-    {
-        session()->remove('no_akta');
-        session()->remove('nama');
-        session()->remove('jenis_kelamin');
-        session()->remove('agama');
-        session()->remove('tempat_lahir');
-        session()->remove('tanggal_lahir');
-        session()->remove('nama_ayah');
-        session()->remove('nama_ibu');
-        session()->remove('pekerjaan_ayah');
-        session()->remove('pekerjaan_ibu');
-        session()->remove('nama_dukuh');
-        session()->remove('rt/rw');
-        session()->remove('kecamatan');
-        session()->remove('kabupaten');
-        session()->remove('status');
-        session()->remove('level');
-
-        //logout berhasil
-        session()->setFlashdata('pesan', 'Logout suksess...');
-        return redirect()->to(base_url('auth/logincalon'));
     }
 }
