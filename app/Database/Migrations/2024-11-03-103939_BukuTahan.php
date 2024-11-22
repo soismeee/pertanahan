@@ -22,6 +22,10 @@ class BukuTahan extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
+            'gambar' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
             'luas' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',

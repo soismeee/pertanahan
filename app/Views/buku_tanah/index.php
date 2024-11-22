@@ -21,13 +21,14 @@
             <thead>
                 <tr>
                     <th class="text-center" width="5%">No</th>
-                    <th class="text-center">Kode Buku</th>
-                    <th class="text-center">Jenis</th>
-                    <th class="text-center">Luas</th>
-                    <th class="text-center">Pemegang Hak</th>
-                    <th class="text-center">Letak</th>
-                    <th class="text-center">Desa</th>
-                    <th class="text-center">Action</th>
+                    <th class="text-center" width="10%">Kode Buku</th>
+                    <th class="text-center" width="10%">Gambar</th>
+                    <th class="text-center" width="10%">Jenis</th>
+                    <th class="text-center" width="10%">Luas</th>
+                    <th class="text-center" width="20%">Pemegang Hak</th>
+                    <th class="text-center" width="10%">Letak</th>
+                    <th class="text-center" width="10%">Desa</th>
+                    <th class="text-center" width="10%">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +37,7 @@
                 <tr>
                     <td class="text-center"><?= $no++; ?></td>
                     <td><?= $value['kode_buku']; ?></td>
+                    <td><img src="/Gambar/<?= $value['gambar']; ?>" width="50%"></td>
                     <td><?= $value['jenis']; ?></td>
                     <td><?= $value['luas']; ?></td>
                     <td><?= $value['pemegang_hak']; ?></td>

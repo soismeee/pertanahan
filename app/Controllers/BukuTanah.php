@@ -35,13 +35,30 @@ class BukuTanah extends BaseController
 
     public function save()
     {
+        $file = $this->request->getFile('file');
+
+        // Validasi file
+        if (!$file->isValid()) {
+            return redirect()->back()->with('error', $file->getErrorString());
+        }
+
+        // Validasi tipe file (hanya gambar)
+        if (!$file->isValid() || !$file->hasMoved() && !in_array($file->getMimeType(), ['image/png', 'image/jpeg', 'image/jpg'])) {
+            return redirect()->back()->with('error', 'File yang diunggah bukan gambar.');
+        }
+
+        // Pindahkan file ke folder 'public/uploads'
+        $newName = $file->getRandomName(); // Generate nama file random
+        $file->move(FCPATH . 'Gambar', $newName);
+
         $data = [
             'kode_buku' => $this->request->getPost('kode_buku'),
             'jenis' => $this->request->getPost('jenis'),
             'luas' => $this->request->getPost('luas'),
             'pemegang_hak' => $this->request->getPost('pemegang_hak'),
             'letak' => $this->request->getPost('letak'),
-            'desa_id' => $this->request->getPost('desa_id')
+            'desa_id' => $this->request->getPost('desa_id'),
+            'gambar' => $newName // Nama file baru
         ];
         $this->BukuTanahModel->save($data);
         session()->setFlashdata('success', 'Data berhasil disimpan');

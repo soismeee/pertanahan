@@ -44,12 +44,19 @@
                         <td width="15%"><strong>Proses</strong></td>
                         <td width="5%">:</td>
                         <td>
-                            <select name="status" id="status" class="form-control">
-                                <option selected disabled>Pilih status</option>
-                                <option value="proses">Proses</option>
-                                <option value="selesai">Selesai</option>
-                                <option value="tolak">Tolak</option>
-                            </select> <br />
+                            <?php if (session()->get('level') == 'loket') : ?>
+                                <select name="status" id="status" class="form-control">
+                                    <option selected disabled>Pilih status</option>
+                                    <option value="proses">Proses</option>
+                                </select>
+                            <?php elseif(session()->get('level') == 'admin') : ?>
+                                <select name="status" id="status" class="form-control">
+                                    <option selected disabled>Pilih status</option>
+                                    <option value="selesai">Selesai</option>
+                                    <option value="tolak">Tolak</option>
+                                </select>
+                            <?php endif; ?>
+                            <br />
                             <button class="btn btn-primary">Proses peminjaman</button>
                         </td>
                     </tr>
