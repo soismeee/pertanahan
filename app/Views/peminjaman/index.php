@@ -102,7 +102,7 @@
                             isiTglKembali = "Tidak dipinjam"
                         }
                         if (status == "selesai") {
-                            isiStatus = '<span class="text-dark">Kembali</span>'
+                            isiStatus = '<span class="text-success">Kembali</span>'
                         }
 
                         // digunakan untuk menampilkan tanggal kembali
