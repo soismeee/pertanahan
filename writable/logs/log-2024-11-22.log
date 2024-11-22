@@ -1,0 +1,20 @@
+INFO - 2024-11-22 05:55:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 06:00:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 06:00:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 06:00:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 06:00:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-22 06:00:26 --> ErrorException: Undefined array key "letak"
+[Method: GET, Route: bukutanah]
+in APPPATH\Views\buku_tanah\index.php on line 42.
+ 1 APPPATH\Views\buku_tanah\index.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "letak"', 'C:\\laragon\\www\\pertanahan\\app\\Views\\buku_tanah\\index.php', 42)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\pertanahan\\app\\Views\\buku_tanah\\index.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('buku_tanah/index', [], true)
+ 5 APPPATH\Controllers\BukuTanah.php(24): view('buku_tanah/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\BukuTanah->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BukuTanah))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')

@@ -37,6 +37,10 @@
                     <input type="email" name="email" id="email" class="form-control" placeholder="Email" autofocus>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
+                <div class="form-group has-feedback">
+                    <input type="text" name="no_hp" id="no_hp" class="form-control" placeholder="Nomor HP">
+                    <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                </div>
                 <div style="display: none;" id="ppp" class="form-group has-feedback">
                     <input type="password" name="password" class="form-control" placeholder="Password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -69,7 +73,7 @@
         $.ajax({
             url: "<?= site_url('Web/cariakun')?>",
             type: 'POST',
-            data: {email: $('input[name=email]').val()},
+            data: {email: $('input[name=email]').val(), no_hp: $('input[name=no_hp]').val()},
             success: function(response){
                 if(response.status == 200){
                     $('#id').val(response.id);
