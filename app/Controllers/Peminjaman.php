@@ -39,7 +39,7 @@ class Peminjaman extends BaseController
     {
         $data = [
             'title' => 'Tambah Data ',
-            'buku_tanah' => $this->BukuTanahModel->getBukutanah(),
+            'buku_tanah' => $this->BukuTanahModel->getAvailableBukuTanah(),
         ];
         return view('peminjaman/tambah', $data);
     }
