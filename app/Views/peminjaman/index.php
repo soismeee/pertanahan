@@ -75,6 +75,16 @@
             loaddata();
         });
 
+        // Fungsi untuk memformat tanggal ke format Indonesia
+        function formatTanggal(tanggal) {
+            if (!tanggal) return "Belum tersedia"; // Jika tanggal null atau undefined
+            let date = new Date(tanggal); // Konversi string tanggal ke objek Date
+            let day = String(date.getDate()).padStart(2, '0'); // Hari dengan 2 digit
+            let month = String(date.getMonth() + 1).padStart(2, '0'); // Bulan dengan 2 digit
+            let year = date.getFullYear(); // Tahun
+            return `${day}-${month}-${year}`; // Format dd-mm-yyyy
+        }
+
         function loaddata(){
             $('.loading').show();
             $('.pesan').hide();
@@ -86,7 +96,7 @@
                     $('.loading').hide();
                     $('#data-peminjaman table tbody').empty();
                     let data = response.data
-                    
+
                     data.forEach((params, index) => {
                         let status = params.status;
                         let levelUser = `<?= session()->get('level'); ?>`;
@@ -107,7 +117,7 @@
 
                         // digunakan untuk menampilkan tanggal kembali
                         if (params.tgl_kembali != null) {
-                            isiTglKembali = params.tgl_kembali
+                            isiTglKembali = formatTanggal(params.tgl_kembali)
                         }
                         
                         
@@ -129,7 +139,7 @@
                     `
                     <tr class="text-center">
                         <td>${index+1}</td>
-                        <td>${params.tanggal_peminjaman}</td>
+                        <td>${formatTanggal(params.tanggal_peminjaman)}</td>
                         <td>${params.nama_user}</td>
                         <td>${params.jenis_permohonan}</td>
                         <td>${params.kode_buku}</td>

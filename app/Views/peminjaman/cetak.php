@@ -41,7 +41,7 @@
                 foreach ($manajemen as $key => $value) { ?>
                 <tr>
                     <td style="text-align: center;"><?= $no++; ?></td>
-                    <td><?= $value['tanggal_peminjaman']; ?></td>
+                    <td><?= date('d-m-Y', strtotime($value['tanggal_peminjaman'])); ?></td>
                     <td><?= $value['nama_user']; ?></td>
                     <td><?= $value['jenis_permohonan']; ?></td>
                     <td><?= $value['kode_buku']; ?></td>

@@ -57,11 +57,11 @@
         </tr>
         <tr>
             <th>Tanggal Peminjaman</th>
-            <td><?= $manajemen[0]['tanggal_peminjaman']; ?></td>
+            <td><?= date('d-m-Y', strtotime($manajemen[0]['tanggal_peminjaman'])); ?></td>
         </tr>
         <tr>
             <th>Tanggal Pengembalian</th>
-            <td><?= $manajemen[0]['tanggal_pengembalian']; ?></td>
+            <td><?= $manajemen[0]['tanggal_pengembalian'] == null ? "" : date('d-m-Y', strtotime($manajemen[0]['tanggal_pengembalian'])); ?></td>
         </tr>
         <tr>
             <th>Nomor</th>

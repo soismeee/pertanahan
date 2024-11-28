@@ -82,7 +82,7 @@
             <div class="row">
                 <div class="col-xs-12 text-center">
                     <a href="<?= base_url('web/lupapassword') ?>" class="text-center"> Lupa password</a> <br />
-                    <a href="<?= base_url('Auth/register') ?>" class="text-center"> Registrasi</a> <br />
+                    <!-- <a href="<?= base_url('Auth/register') ?>" class="text-center"> Registrasi</a> <br /> -->
                     <a href="<?= base_url('web/index') ?>" class="text-center"><i class="fa fa-globe"></i> Web</a>
                 </div>
 

@@ -6,10 +6,8 @@
     <div class="box-header">
         <h3 class="box-title">Data User</h3><br>
         <span>
-            <a href="<?= base_url('user/tambah') ?>" class="btn btn-success btn-sm" style="margin-top: 10px;"><i
-                    class="glyphicon glyphicon-plus"></i>&nbsp;Tambah User</a>
-            <a href="<?= base_url('user/cetak') ?>" class="btn btn-success btn-sm" style="margin-top: 10px;"><i
-                    class="glyphicon glyphicon-print"></i>&nbsp;Cetak User</a>
+            <a href="<?= base_url('user/tambah') ?>" class="btn btn-success btn-sm" style="margin-top: 10px;"><i class="glyphicon glyphicon-plus"></i>&nbsp;Tambah User</a>
+            <!-- <a href="<?= base_url('user/cetak') ?>" class="btn btn-success btn-sm" style="margin-top: 10px;"><i class="glyphicon glyphicon-print"></i>&nbsp;Cetak User</a> -->
         </span>
     </div>
     <!-- /.box-header -->
