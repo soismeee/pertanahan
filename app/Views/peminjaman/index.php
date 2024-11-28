@@ -119,7 +119,7 @@
                             `
                         }   
                         if (levelUser == "karyawan") {
-                            if (status == "selesai") {    
+                            if (status == "proses") {    
                                 isiAction = `<a href="<?= base_url('peminjaman/cetakBukti/') ?>${params.id_peminjaman}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-print">Cetak</i></a>`
                             }else{
                                 isiAction = `<a href="#" class="btn btn-primary btn-xs disabled">proses</i></a>`
