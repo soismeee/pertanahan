@@ -1,0 +1,1355 @@
+INFO - 2024-11-29 22:35:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-29 22:35:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-29 22:35:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-29 22:35:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-29 22:35:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-29 22:35:59 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminja...', 0)
+#1 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\laragon\www\pertanahan\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\laragon\www\pertanahan\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\pertanahan\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\pertanahan\app\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\pertanahan\app\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+#8 C:\laragon\www\pertanahan\system\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+#9 C:\laragon\www\pertanahan\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#10 C:\laragon\www\pertanahan\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\pertanahan\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\pertanahan\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\pertanahan\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\pertanahan\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-11-29 22:35:59 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+[Method: POST, Route: laporan/getLaporan]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:35:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:35:59 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+ERROR - 2024-11-29 22:36:03 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminja...', 0)
+#1 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\laragon\www\pertanahan\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\laragon\www\pertanahan\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\pertanahan\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\pertanahan\app\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\pertanahan\app\Controllers\Laporan.php(48): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+#8 C:\laragon\www\pertanahan\system\CodeIgniter.php(933): App\Controllers\Laporan->v_print_laporan()
+#9 C:\laragon\www\pertanahan\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#10 C:\laragon\www\pertanahan\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\pertanahan\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\pertanahan\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\pertanahan\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\pertanahan\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-11-29 22:36:03 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+[Method: POST, Route: laporan/v_print_laporan]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Laporan.php(48): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->v_print_laporan()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:36:03 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Laporan.php(48): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->v_print_laporan()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:36:03 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Laporan.php(48): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->v_print_laporan()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+INFO - 2024-11-29 22:36:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-29 22:37:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-29 22:37:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-29 22:37:17 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminja...', 0)
+#1 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\laragon\www\pertanahan\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\laragon\www\pertanahan\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\pertanahan\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\pertanahan\app\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\pertanahan\app\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+#8 C:\laragon\www\pertanahan\system\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+#9 C:\laragon\www\pertanahan\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#10 C:\laragon\www\pertanahan\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\pertanahan\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\pertanahan\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\pertanahan\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\pertanahan\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-11-29 22:37:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+[Method: POST, Route: laporan/getLaporan]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:37:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:37:17 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+INFO - 2024-11-29 22:38:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-29 22:38:45 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminja...', 0)
+#1 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\laragon\www\pertanahan\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\laragon\www\pertanahan\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\pertanahan\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\pertanahan\app\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\pertanahan\app\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+#8 C:\laragon\www\pertanahan\system\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+#9 C:\laragon\www\pertanahan\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#10 C:\laragon\www\pertanahan\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\pertanahan\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\pertanahan\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\pertanahan\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\pertanahan\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-11-29 22:38:45 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+[Method: POST, Route: laporan/getLaporan]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:38:45 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:38:45 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+INFO - 2024-11-29 22:39:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-29 22:39:10 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminja...', 0)
+#1 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\laragon\www\pertanahan\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\laragon\www\pertanahan\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\pertanahan\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\pertanahan\app\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\pertanahan\app\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+#8 C:\laragon\www\pertanahan\system\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+#9 C:\laragon\www\pertanahan\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#10 C:\laragon\www\pertanahan\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\pertanahan\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\pertanahan\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\pertanahan\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\pertanahan\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-11-29 22:39:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+[Method: POST, Route: laporan/getLaporan]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:10 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+ERROR - 2024-11-29 22:39:11 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminja...', 0)
+#1 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\laragon\www\pertanahan\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\laragon\www\pertanahan\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\pertanahan\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\pertanahan\app\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\pertanahan\app\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+#8 C:\laragon\www\pertanahan\system\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+#9 C:\laragon\www\pertanahan\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#10 C:\laragon\www\pertanahan\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\pertanahan\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\pertanahan\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\pertanahan\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\pertanahan\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-11-29 22:39:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+[Method: POST, Route: laporan/getLaporan]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:11 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+ERROR - 2024-11-29 22:39:12 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminja...', 0)
+#1 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\laragon\www\pertanahan\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\laragon\www\pertanahan\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\pertanahan\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\pertanahan\app\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\pertanahan\app\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+#8 C:\laragon\www\pertanahan\system\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+#9 C:\laragon\www\pertanahan\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#10 C:\laragon\www\pertanahan\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\pertanahan\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\pertanahan\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\pertanahan\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\pertanahan\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-11-29 22:39:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+[Method: POST, Route: laporan/getLaporan]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:12 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:12 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+INFO - 2024-11-29 22:39:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-29 22:39:23 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminja...', 0)
+#1 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\laragon\www\pertanahan\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\laragon\www\pertanahan\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\pertanahan\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\pertanahan\app\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\pertanahan\app\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+#8 C:\laragon\www\pertanahan\system\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+#9 C:\laragon\www\pertanahan\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#10 C:\laragon\www\pertanahan\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\pertanahan\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\pertanahan\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\pertanahan\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\pertanahan\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-11-29 22:39:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+[Method: POST, Route: laporan/getLaporan]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:23 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+INFO - 2024-11-29 22:39:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-29 22:39:55 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminja...', 0)
+#1 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\laragon\www\pertanahan\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\laragon\www\pertanahan\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\pertanahan\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\pertanahan\app\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\pertanahan\app\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+#8 C:\laragon\www\pertanahan\system\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+#9 C:\laragon\www\pertanahan\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#10 C:\laragon\www\pertanahan\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\pertanahan\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\pertanahan\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\pertanahan\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\pertanahan\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-11-29 22:39:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+[Method: POST, Route: laporan/getLaporan]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:55 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:55 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+ERROR - 2024-11-29 22:39:55 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminja...', 0)
+#1 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\laragon\www\pertanahan\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\laragon\www\pertanahan\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\pertanahan\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\pertanahan\app\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\pertanahan\app\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+#8 C:\laragon\www\pertanahan\system\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+#9 C:\laragon\www\pertanahan\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#10 C:\laragon\www\pertanahan\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\pertanahan\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\pertanahan\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\pertanahan\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\pertanahan\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-11-29 22:39:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+[Method: POST, Route: laporan/getLaporan]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:55 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:55 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+ERROR - 2024-11-29 22:39:57 --> mysqli_sql_exception: Incorrect DATE value: '' in C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\pertanahan\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminja...', 0)
+#1 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\laragon\www\pertanahan\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\laragon\www\pertanahan\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\laragon\www\pertanahan\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\pertanahan\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\pertanahan\app\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\pertanahan\app\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+#8 C:\laragon\www\pertanahan\system\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+#9 C:\laragon\www\pertanahan\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#10 C:\laragon\www\pertanahan\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\pertanahan\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\pertanahan\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\pertanahan\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\pertanahan\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-11-29 22:39:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+[Method: POST, Route: laporan/getLaporan]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+CRITICAL - 2024-11-29 22:39:57 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= \'\'
+AND `tanggal_peminjaman` <= \'\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `peminjaman`.`id_peminjaman` as `id_peminjaman`, `users`.`nama_user`, `users`.`nip`, `users`.`bagian`, `buku_tanah`.`kode_buku`, `desa`.`nama_desa`, `kecamatan`.`nama_kecamatan`
+FROM `peminjaman`
+LEFT JOIN `users` ON `users`.`id_user` = `peminjaman`.`user_id`
+LEFT JOIN `buku_tanah` ON `buku_tanah`.`id_buku_tanah` = `peminjaman`.`buku_tanah_id`
+LEFT JOIN `desa` ON `desa`.`id_desa` = `buku_tanah`.`desa_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id_kecamatan` = `desa`.`kecamatan_id`
+WHERE `tanggal_peminjaman` >= :tanggal_peminjaman:
+AND `tanggal_peminjaman` <= :tanggal_peminjaman.1:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PeminjamanModel.php(68): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Laporan.php(36): App\Models\PeminjamanModel->getLaporanPeminjaman('', '')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->getLaporan()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pertanahan\\public\\index.php')
+INFO - 2024-11-29 22:40:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
