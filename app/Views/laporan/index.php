@@ -158,7 +158,7 @@
                             <td>${params.tanggal_peminjaman}</td>
                             <td>${params.nama_user}</td>
                             <td>${params.jenis_permohonan}</td>
-                            <td>${params.no_shm_shgb}</td>
+                            <td>${params.kode_buku}</td>
                             <td>${params.nama_kecamatan} - ${params.nama_desa}</td>
                             <td>${params.status}</td>
                             <td>${params.notaris}</td>
