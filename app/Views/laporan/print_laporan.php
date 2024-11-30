@@ -34,7 +34,7 @@
                     <td><?= date('d-m-Y', strtotime($value['tanggal_peminjaman'])); ?></td>
                     <td><?= $value['nama_user']; ?></td>
                     <td><?= $value['jenis_permohonan']; ?></td>
-                    <td><?= $value['no_shm_shgb']; ?></td>
+                    <td><?= $value['kode_buku']; ?></td>
                     <td>
                         Kel. <?= $value['nama_desa']; ?>
                         <br>
