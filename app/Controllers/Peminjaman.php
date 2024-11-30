@@ -98,6 +98,9 @@ class Peminjaman extends BaseController
             'status' => $this->request->getPost('status'),
             'pengembalian' => date('Y-m-d')
         ];
+        if ($this->request->getPost('status') == "selesai") {
+            $data['tanggal_pengembalian'] = date('Y-m-d');
+        }
         $this->PeminjamanModel->update($id, $data);
         session()->setFlashdata('pesan', 'Data Berhasil Diupdate!!');
         return redirect()->to(base_url('Peminjaman'));

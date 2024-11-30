@@ -116,8 +116,8 @@
                         }
 
                         // digunakan untuk menampilkan tanggal kembali
-                        if (params.tgl_kembali != null) {
-                            isiTglKembali = formatTanggal(params.tgl_kembali)
+                        if (params.tanggal_pengembalian !== null) {
+                            isiTglKembali = formatTanggal(params.tanggal_pengembalian)
                         }
                         
                         
