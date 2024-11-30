@@ -21,4 +21,20 @@ class BukuTanahModel extends Model
         ->join('desa', 'desa.id_desa = buku_tanah.desa_id')
         ->where(['id_desa' => $id])->first(); 
     }
+    
+    public function getAvailableBukuTanah()
+    {
+        $db = \Config\Database::connect();
+
+        // Subquery untuk mengambil buku_tanah_id dengan status 'pinjam' atau 'proses'
+        $subquery = $db->table('peminjaman')
+            ->select('buku_tanah_id')
+            ->whereIn('status', ['pinjam', 'proses']);
+
+        // Query utama untuk mengambil data buku tanah yang tidak ada di subquery
+        return $this->whereNotIn('id_buku_tanah', $subquery)
+            ->findAll();
+    }
+
+
 }

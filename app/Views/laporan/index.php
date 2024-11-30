@@ -60,13 +60,13 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="tgl_awal">Tanggal Awal</label>
-                            <input type="date" name="tgl_awal" id="tgl_awal" class="form-control">
+                            <input type="date" name="tgl_awal" id="tgl_awal" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="tgl_akhir">Tanggal Akhir</label>
-                            <input type="date" name="tgl_akhir" id="tgl_akhir" class="form-control">
+                            <input type="date" name="tgl_akhir" id="tgl_akhir" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -151,22 +151,32 @@
                     $('#data-peminjaman table tbody').empty();
                     let peminjaman = data.peminjaman
                     peminjaman.forEach((params, index) => {
-                    let body = 
-                    `
-                    <tr class="text-center">
-                        <td>${index+1}</td>
-                        <td>${params.tanggal_peminjaman}</td>
-                        <td>${params.nama_user}</td>
-                        <td>${params.jenis_permohonan}</td>
-                        <td>${params.no_shm_shgb}</td>
-                        <td>${params.nama_kecamatan} - ${params.nama_desa}</td>
-                        <td>${params.status}</td>
-                        <td>${params.notaris}</td>
-                        <td>${params.tanggal_pengembalian}</td>
-                    </tr>
-                    `
-                    $('#data-peminjaman table tbody').append(body);
-                })
+                        let body = 
+                        `
+                        <tr class="text-center">
+                            <td>${index+1}</td>
+                            <td>${params.tanggal_peminjaman}</td>
+                            <td>${params.nama_user}</td>
+                            <td>${params.jenis_permohonan}</td>
+                            <td>${params.no_shm_shgb}</td>
+                            <td>${params.nama_kecamatan} - ${params.nama_desa}</td>
+                            <td>${params.status}</td>
+                            <td>${params.notaris}</td>
+                            <td>${params.tanggal_pengembalian}</td>
+                        </tr>
+                        `
+                        $('#data-peminjaman table tbody').append(body);
+                    })
+                },
+                error: function(error){
+                    $('.loading').hide();
+                    $('#data-peminjaman table tbody').empty();
+                    $('#data-peminjaman table tbody').append(`
+                        <tr>
+                            <td colspan="9" class="text-center">Data tidak ditemukan</td>
+                        </tr>
+                    `);
+
                 }
             })
         }
