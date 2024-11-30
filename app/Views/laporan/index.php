@@ -149,7 +149,7 @@
                 success: function(data){
                     $('.loading').hide();
                     $('#data-peminjaman table tbody').empty();
-                    let peminjaman = data.peminjaman
+                    let peminjaman = data;
                     peminjaman.forEach((params, index) => {
                         let body = 
                         `
