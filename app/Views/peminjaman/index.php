@@ -124,16 +124,18 @@
                         if (levelUser == "admin") {
                             isiAction = `
                             <a href="<?= base_url('peminjaman/proses/') ?>${params.id_peminjaman}" class="btn btn-primary btn-xs">Aksi</i></a>
+                            <a href="<?= base_url('peminjaman/cetakBukti/') ?>${params.id_peminjaman}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-print">Cetak</i></a>
                             <a href="<?= base_url('peminjaman/edit/') ?>${params.id_peminjaman}" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
                             <a href="<?= base_url('peminjaman/delete/') ?>${params.id_peminjaman}" class="btn btn-danger btn-xs" id="hapus"><i class="fa fa-trash"></i></a>
                             `
                         }   
                         if (levelUser == "karyawan") {
-                            if (status == "proses") {    
-                                isiAction = `<a href="<?= base_url('peminjaman/cetakBukti/') ?>${params.id_peminjaman}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-print">Cetak</i></a>`
-                            }else{
-                                isiAction = `<a href="#" class="btn btn-primary btn-xs disabled">proses</i></a>`
-                            }
+                            isiAction = `<a href="#" class="btn btn-primary btn-xs disabled">proses</i></a>`
+                            // if (status == "proses") {    
+                            //     isiAction = `<a href="<?= base_url('peminjaman/cetakBukti/') ?>${params.id_peminjaman}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-print">Cetak</i></a>`
+                            // }else{
+                            //     isiAction = `<a href="#" class="btn btn-primary btn-xs disabled">proses</i></a>`
+                            // }
                         } 
                     let body = 
                     `

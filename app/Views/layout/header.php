@@ -56,9 +56,9 @@
       <!-- Logo -->
       <a href="#" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>LT</span>
+        <span class="logo-mini">BPN</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Admin</b>LTE</span>
+        <span class="logo-lg"><b>BPN</b> Batang</span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
@@ -209,7 +209,7 @@
 
                         </ul>
                     </li>
-                    <li class="treeview" style="height: auto;">
+                    <!-- <li class="treeview" style="height: auto;">
                         <a href="#">
                             <i class="fa fa-gear"></i> <span>Setting</span>
                             <span class="pull-right-container">
@@ -220,9 +220,8 @@
                             <li><a href="<?= base_url('setting/identitas') ?>"><i class="fa fa-circle-o"></i>Identitas
                                     Kantor</a></li>
                             <li><a href="<?= base_url('setting/home') ?>"><i class="fa fa-circle-o"></i>Halaman Home</a></li>
-
                         </ul>
-                    </li>
+                    </li> -->
                 <?php } ?>
 
                 <?php if (session()->get('level') == "karyawan") { ?>
