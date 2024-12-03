@@ -118,6 +118,17 @@
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+
+        // Fungsi untuk memformat tanggal ke format Indonesia
+        function formatTanggal(tanggal) {
+            if (!tanggal) return "Belum tersedia"; // Jika tanggal null atau undefined
+            let date = new Date(tanggal); // Konversi string tanggal ke objek Date
+            let day = String(date.getDate()).padStart(2, '0'); // Hari dengan 2 digit
+            let month = String(date.getMonth() + 1).padStart(2, '0'); // Bulan dengan 2 digit
+            let year = date.getFullYear(); // Tahun
+            return `${day}-${month}-${year}`; // Format dd-mm-yyyy
+        }
+
         $(document).ready(function(){
             loading();
 
@@ -155,14 +166,14 @@
                         `
                         <tr class="text-center">
                             <td>${index+1}</td>
-                            <td>${params.tanggal_peminjaman}</td>
+                            <td>${formatTanggal(params.tanggal_peminjaman)}</td>
                             <td>${params.nama_user}</td>
                             <td>${params.jenis_permohonan}</td>
                             <td>${params.kode_buku}</td>
                             <td>${params.nama_kecamatan} - ${params.nama_desa}</td>
                             <td>${params.status}</td>
                             <td>${params.notaris}</td>
-                            <td>${params.tanggal_pengembalian}</td>
+                            <td>${formatTanggal(params.tanggal_pengembalian)}</td>
                         </tr>
                         `
                         $('#data-peminjaman table tbody').append(body);

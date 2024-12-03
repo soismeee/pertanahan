@@ -48,12 +48,12 @@
                                 <select name="status" id="status" class="form-control">
                                     <option selected disabled>Pilih status</option>
                                     <option value="proses">Proses</option>
+                                    <option value="tolak">Tolak</option>
                                 </select>
                             <?php elseif(session()->get('level') == 'admin') : ?>
                                 <select name="status" id="status" class="form-control">
                                     <option selected disabled>Pilih status</option>
                                     <option value="selesai">Selesai</option>
-                                    <option value="tolak">Tolak</option>
                                 </select>
                             <?php endif; ?>
                             <br />
