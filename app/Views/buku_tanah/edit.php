@@ -45,7 +45,7 @@
                         <select class="form-control" name="desa_id">
                             <option disabled selected>-Pilih-</option>
                             <?php foreach ($desa as $data) : ?>
-                                <option value="<?= $data['id_desa']; ?>" <?= $data['id_desa'] == $buku_tanah['desa_id'] ? 'selected' : ''; ?>><?= $data['nama_desa']; ?></option>
+                                <option value="<?= $data['id_desa']; ?>" <?= $data['id_desa'] == $buku_tanah['desa_id'] ? 'selected' : ''; ?>> <?= $data['nama_kecamatan']; ?> - <?= $data['nama_desa']; ?></option>
                                 <?php endforeach; ?>
                         </select>
                     </div>
