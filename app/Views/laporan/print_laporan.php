@@ -16,14 +16,14 @@
             <thead>
                 <tr bgcolor=silver align=center>
                     <td width="5%">No</td>
-                    <th class="text-center">Tanggal</th>
+                    <th class="text-center">Tanggal Pinjam</th>
                     <th class="text-center">Nama Peminjam</th>
                     <th class="text-center">Jenis Permohonan</th>
                     <th class="text-center">No SHM/SHGB</th>
                     <th class="text-center">Wilayah</th>
                     <th class="text-center">Status</th>
                     <th class="text-center">Notaris</th>
-                    <th class="text-center">Kembali</th>
+                    <th class="text-center">Tanggal Kembali</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +42,7 @@
                     </td>
                     <td><?= $value['status']; ?></td>
                     <td><?= $value['notaris']; ?></td>
-                    <td><?= date('d-m-Y', strtotime($value['tanggal_pengembalian'])); ?></td>
+                    <td><?= $value['status'] == "selesai" ? date('d-m-Y', strtotime($value['tanggal_pengembalian'])) : "Tidak tersedia"; ?></td>
                 </tr>
                 <?php } ?>
             </tbody>
