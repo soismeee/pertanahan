@@ -45,7 +45,7 @@
                     <td> <?= $value['nama_kecamatan']; ?> - <?= $value['nama_desa']; ?></td>
                     <td>
                         <a href="<?= base_url('bukutanah/edit/' . $value['id_buku_tanah']); ?>" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a href="<?= base_url('bukutanah/delete/' . $value['id_buku_tanah']); ?>" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>
+                        <a href="<?= base_url('bukutanah/delete/' . $value['id_buku_tanah']); ?>"  onclick="return confirm('Apakah Anda yakin ingin menghapus data ini? Data yang terkait dengan peminjaman akan ikut terhapus!')" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>
                     </td>
                 </tr>
                 <?php } ?>
