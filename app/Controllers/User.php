@@ -49,7 +49,6 @@ class User extends BaseController
     {
         $token = bin2hex(random_bytes(16)); // Generate token verifikasi
 
-
         $model = new UserModel();
         $file = $this->request->getFile('foto_user');
 		$randomName = $file->getRandomName();
@@ -69,7 +68,7 @@ class User extends BaseController
         
         $model->save($data);
         // Kirim email verifikasi
-        $this->sendVerificationEmail($this->request->getPost('email'), $token);
+        $this->sendVerificationEmail($this->request->getPost('email'), $data['email_verification_token']);
 
         session()->setFlashdata('success', 'Data berhasil disimpan');
         return redirect()->to(base_url('user'));

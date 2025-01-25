@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\SettingModel;
 use App\Models\UserModel;
 
 class Web extends BaseController
@@ -13,14 +12,12 @@ class Web extends BaseController
 
     public function __construct()
     {
-        $this->settingModel = new SettingModel();
         $this->UserModel = new UserModel();
     }
     public function index()
     {
         $data = [
             'title' => 'Home',
-            'setting' => $this->settingModel->detailSetting(),
 
         ];
         return view('web/index', $data);
@@ -30,7 +27,6 @@ class Web extends BaseController
     {
         $data = [
             'title' => 'Profil',
-            'setting' => $this->settingModel->detailSetting(),
         ];
         return view('web/profil', $data);
     }
@@ -39,7 +35,6 @@ class Web extends BaseController
     {
         $data = [
             'title' => 'Contact',
-            'setting' => $this->settingModel->detailSetting(),
         ];
         return view('web/contact', $data);
     }
@@ -48,7 +43,6 @@ class Web extends BaseController
     {
         $data = [
             'title' => 'Profil',
-            'setting' => $this->settingModel->detailSetting(),
         ];
         return view('web/lupa_password', $data);
     }

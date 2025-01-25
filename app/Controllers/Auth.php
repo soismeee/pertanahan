@@ -18,7 +18,6 @@ class Auth extends BaseController
     {
         helper('form');
         $this->AuthModel = new AuthModel();
-        $this->settingModel = new SettingModel();
       
     }
 
@@ -65,7 +64,7 @@ class Auth extends BaseController
             ]
         )) {
 
-            $token = bin2hex(random_bytes(16)); // Generate token verifikasi
+            $token = bin2hex(random_bytes(32)); // Generate token verifikasi
 
             //jika valid
             $data = array(
@@ -109,22 +108,22 @@ class Auth extends BaseController
     }
 
     public function verify($token)
-{
-    $db = \Config\Database::connect();
-    $user = $db->table('users')->where('email_verification_token', $token)->get()->getRow();
+    {
+        $db = \Config\Database::connect();
+        $user = $db->table('users')->where('email_verification_token', $token)->get()->getRow();
+        // dd($token);
+        if ($user) {
+            // Perbarui status email_verified
+            $db->table('users')->where('id_user', $user->id_user)->update([
+                'email_verified'            => 1,
+                'email_verification_token'  => null,
+            ]);
 
-    if ($user) {
-        // Perbarui status email_verified
-        $db->table('users')->where('id_user', $user->id_user)->update([
-            'email_verified'            => 1,
-            'email_verification_token'  => null,
-        ]);
-
-        return redirect()->to('/auth/login')->with('success', 'Email berhasil diverifikasi. Silakan login.');
-    } else {
-        return redirect()->to('/auth/login')->with('error', 'Token verifikasi tidak valid.');
+            return redirect()->to('/auth/login')->with('success', 'Email berhasil diverifikasi. Silakan login.');
+        } else {
+            return redirect()->to('/auth/login')->with('error', 'Token verifikasi tidak valid.');
+        }
     }
-}
 
 
     public function login()

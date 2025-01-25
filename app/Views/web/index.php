@@ -13,7 +13,18 @@
         <div class="container">
             <div class="box box-primary">
                 <div class="box-body">
-                    <?= $setting['home'] ?>
+                    <p><strong>VISI</strong><br />
+                    Terwujudnya Penataan Ruang dan Pengelolaan Pertanahan yang Terpercaya dan Berstandar Dunia dalam Melayani Masyarakat untuk Mendukung Tercapainya: &quot;Indonesia Maju yang Berdaulat, Mandiri dan Berkepribadian Berlandaskan Gotong Royong&quot;</p>
+
+                    <p>&nbsp;</p>
+
+                    <p><strong>MISI</strong><br />
+                    Menyelenggarakan Penataan Ruang dan Pengelolaan Pertanahan yang Produktif, Berkelanjutan dan Berkeadilan;<br />
+                    Menyelenggarakan Pelayanan Pertanahan dan Penataan Ruang yang Berstandar Dunia.<br />
+                    &nbsp;</p>
+
+                    <p><strong>MOTO</strong><br />
+                    Melayani, Profesional, Terpercaya</p>
                 </div>
             </div>
             <div class="row">
