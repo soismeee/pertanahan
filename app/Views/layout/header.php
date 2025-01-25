@@ -171,12 +171,12 @@
                 <?php if (session()->get('level') == "admin") { ?>
                     <li>
                         <a href="<?= base_url('bukutanah') ?>">
-                            <i class="fa fa-child"></i> <span>Daftar buku tanah</span>
+                            <i class="fa fa-book"></i> <span>Daftar buku tanah</span>
                         </a>
                     </li>
                     <li>
                         <a href="<?= base_url('peminjaman') ?>">
-                            <i class="fa fa-child"></i> <span>MANAJEMEN BUKU TANAH</span>
+                            <i class="fa fa-archive"></i> <span>PEMINJAMAN BUKU TANAH</span>
                         </a>
                     </li>
                     <li>
@@ -199,7 +199,7 @@
                     </li>
                     <li class="treeview" style="height: auto;">
                         <a href="#">
-                            <i class="fa fa-group"></i> <span>Laporan</span>
+                            <i class="fa fa-table"></i> <span>Laporan</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -227,7 +227,7 @@
                 <?php if (session()->get('level') == "karyawan") { ?>
                     <li>
                         <a href="<?= base_url('peminjaman') ?>">
-                            <i class="fa fa-street-view"></i> <span>Daftar Peminjaman</span>
+                            <i class="fa fa-archive"></i> <span>Daftar Peminjaman</span>
                         </a>
                     </li>
                 <?php } ?>
@@ -235,7 +235,7 @@
                 <?php if (session()->get('level') == "loket") { ?>
                     <li>
                         <a href="<?= base_url('peminjaman') ?>">
-                            <i class="fa fa-street-view"></i> <span>Daftar Peminjaman</span>
+                            <i class="fa fa-archive"></i> <span>Daftar Peminjaman</span>
                         </a>
                     </li>
                 <?php } ?>
