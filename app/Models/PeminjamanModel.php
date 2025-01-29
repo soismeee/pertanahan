@@ -51,7 +51,7 @@ class PeminjamanModel extends Model
         return $query->findAll();
     }
 
-    public function getLaporanPeminjaman($tgl_awal = false, $tgl_akhir = false){
+    public function getLaporanPeminjaman($tgl_awal = false, $tgl_akhir = false, $user_id = false){
         $query = $this
         ->select('peminjaman.*, peminjaman.id_peminjaman as id_peminjaman, users.nama_user, users.nip, users.bagian, buku_tanah.kode_buku, desa.nama_desa, kecamatan.nama_kecamatan')    
         ->join('users', 'users.id_user = peminjaman.user_id', 'left')
@@ -59,6 +59,9 @@ class PeminjamanModel extends Model
         ->join('desa', 'desa.id_desa = buku_tanah.desa_id', 'left')
         ->join('kecamatan', 'kecamatan.id_kecamatan = desa.kecamatan_id', 'left');
 
+    if($user_id !== "All"){
+        $query->where('user_id', $user_id);
+    }
     if ($tgl_awal !== false AND $tgl_akhir !== false) {
         $query
         ->where('tanggal_peminjaman >=', $tgl_awal)

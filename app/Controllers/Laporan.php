@@ -3,17 +3,19 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\ManajemenModel;
 use App\Models\PeminjamanModel;
+use App\Models\UserModel;
 use Dompdf\Dompdf;
 
 class Laporan extends BaseController
 {
     protected $PeminjamanModel;
+    protected $userModel;
 
     public function __construct()
     {
         $this->PeminjamanModel = new PeminjamanModel();
+        $this->userModel = new UserModel();
     }
 
     public function index()
@@ -24,16 +26,18 @@ class Laporan extends BaseController
             'statusPinjamTolak' => $this->PeminjamanModel->where('status', 'tolak')->countAllResults(),
             'statusBTPinjam' => $this->PeminjamanModel->whereIn('status', ['pinjam', 'proses'])->countAllResults(),
             'statusBTKembali' => $this->PeminjamanModel->where('status', 'selesai')->countAllResults(),
+            'karyawan' => $this->userModel->where('level', 'karyawan')->get()->getResultArray()
         ];
-        // dd($data['statusPinjamAcc']);
+        // dd($data['pegawai']);
         return view('laporan/index', $data);
     }
 
     public function getLaporan(){
         $data = [
+            'user_id' => $user_id = $this->request->getPost('user_id'),
             'tgl_awal' => $tgl_awal = $this->request->getPost('tgl_awal'),
             'tgl_akhir' => $tgl_akhir = $this->request->getPost('tgl_akhir'),
-            'peminjaman' => $peminjaman = $this->PeminjamanModel->getLaporanPeminjaman($tgl_awal, $tgl_akhir)
+            'peminjaman' => $peminjaman = $this->PeminjamanModel->getLaporanPeminjaman($tgl_awal, $tgl_akhir, $user_id)
         ];
 
         return $this->response->setJSON($peminjaman);
@@ -41,11 +45,12 @@ class Laporan extends BaseController
 
     public function v_print_laporan()
     {
+        $user_id = $this->request->getPost('user_id');
         $tgl_awal = $this->request->getPost('tgl_awal');
         $tgl_akhir = $this->request->getPost('tgl_akhir');
         $data = [
             'title' => 'Laporan Manajemen Periode ' . date('d-m-Y', strtotime($tgl_awal)) . ' s.d. ' . date('d-m-Y', strtotime($tgl_akhir)),
-            'laporan' => $this->PeminjamanModel->getLaporanPeminjaman($tgl_awal, $tgl_akhir),
+            'laporan' => $this->PeminjamanModel->getLaporanPeminjaman($tgl_awal, $tgl_akhir, $user_id),
         ];
         return view('laporan/print_laporan', $data);
     }

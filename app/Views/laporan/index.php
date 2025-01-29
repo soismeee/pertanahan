@@ -57,25 +57,37 @@
             <br>
             <form action="<?= base_url('laporan/v_print_laporan') ?>" method="post">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="tgl_awal">Tanggal Awal</label>
                             <input type="date" name="tgl_awal" id="tgl_awal" class="form-control" required>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="tgl_akhir">Tanggal Akhir</label>
                             <input type="date" name="tgl_akhir" id="tgl_akhir" class="form-control" required>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="tgl_akhir">Karyawan</label>
+                            <select name="user_id" id="user_id" class="form-control">
+                                <option value="All">-- Semua Karyawan --</option>
+                                <?php foreach ($karyawan as $data) :?>
+                                    <option value="<?= $data['id_user'];?>"><?= $data['nama_user'];?></option>
+                                <?php endforeach;?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="">&nbsp;</label>
                             <a href="#" id="tampilkan" class="btn btn-primary form-control">Tampilkan Data</a>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="">&nbsp;</label>
                             <button type="submit" class="btn btn-success form-control">Print</button>
@@ -156,7 +168,7 @@
             $.ajax({
                 url: '<?= base_url('laporan/getLaporan');?>',
                 type: 'post',
-                data: {tgl_awal: $('#tgl_awal').val(), tgl_akhir: $('#tgl_akhir').val()},
+                data: {tgl_awal: $('#tgl_awal').val(), tgl_akhir: $('#tgl_akhir').val(), 'user_id': $('#user_id').val()},
                 success: function(data){
                     $('.loading').hide();
                     $('#data-peminjaman table tbody').empty();
