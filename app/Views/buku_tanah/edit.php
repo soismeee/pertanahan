@@ -36,6 +36,7 @@
                         <label>Pemegang hak</label>
                         <input type="text" name="pemegang_hak" class="form-control" placeholder="Pemegang Hak" value="<?= $buku_tanah['pemegang_hak']; ?>">
                     </div>
+                    
                     <div class="form-group">
                         <label>Letak</label>
                         <select class="form-control" name="letak">
@@ -49,6 +50,7 @@
                             <option value="4-B" <?= $buku_tanah['letak'] == "4-B" ? "selected" : "" ?>> 4-B </option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label>Desa</label>
                         <select class="form-control" name="desa_id">
