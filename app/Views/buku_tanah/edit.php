@@ -38,7 +38,16 @@
                     </div>
                     <div class="form-group">
                         <label>Letak</label>
-                        <input type="text" name="letak" class="form-control" placeholder="letak" value="<?= $buku_tanah['letak']; ?>">
+                        <select class="form-control" name="letak">
+                            <option value="1-A" <?= $buku_tanah['letak'] == "1-A" ? "selected" : "" ?>> 1-A </option>
+                            <option value="1-B" <?= $buku_tanah['letak'] == "1-B" ? "selected" : "" ?>> 1-B </option>
+                            <option value="2-A" <?= $buku_tanah['letak'] == "2-A" ? "selected" : "" ?>> 2-A </option>
+                            <option value="2-B" <?= $buku_tanah['letak'] == "2-B" ? "selected" : "" ?>> 2-B </option>
+                            <option value="3-A" <?= $buku_tanah['letak'] == "3-A" ? "selected" : "" ?>> 3-A </option>
+                            <option value="3-B" <?= $buku_tanah['letak'] == "3-B" ? "selected" : "" ?>> 3-B</option>
+                            <option value="4-A" <?= $buku_tanah['letak'] == "4-A" ? "selected" : "" ?>> 4-A </option>
+                            <option value="4-B" <?= $buku_tanah['letak'] == "4-B" ? "selected" : "" ?>> 4-B </option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Desa</label>
