@@ -29,11 +29,11 @@
                     </div>
                     <div class="form-group">
                         <label>Luas</label>
-                        <input type="text" name="luas" class="form-control" placeholder="luas" required>
+                        <input type="text" name="luas" class="form-control" placeholder="luas">
                     </div>
                     <div class="form-group">
                         <label>Pemegang hak</label>
-                        <input type="text" name="pemegang_hak" class="form-control" placeholder="Pemegang Hak" required>
+                        <input type="text" name="pemegang_hak" class="form-control" placeholder="Pemegang Hak">
                     </div>
                     <div class="form-group">
                         <label>Letak</label>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="form-group">
                         <label>Gambar</label>
-                        <input type="file" name="file" class="form-control" required>
+                        <input type="file" name="file" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
                     <a href="<?= base_url('bukutanah') ?>" class="btn btn-success btn-sm">Kembali</a>

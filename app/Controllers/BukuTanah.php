@@ -36,21 +36,22 @@ class BukuTanah extends BaseController
     public function save()
     {
         $file = $this->request->getFile('file');
+        $newName = null; // Inisialisasi dengan null
 
-        // Validasi file
-        if (!$file->isValid()) {
-            return redirect()->back()->with('error', $file->getErrorString());
+        // Cek apakah file diunggah dan tidak mengalami error
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            // Validasi tipe file (hanya gambar)
+            $allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+            if (!in_array($file->getMimeType(), $allowedMimeTypes)) {
+                return redirect()->back()->with('error', 'File yang diunggah bukan gambar.');
+            }
+
+            // Pindahkan file ke folder 'public/Gambar' jika file valid
+            $newName = $file->getRandomName();
+            $file->move(FCPATH . 'Gambar', $newName);
         }
 
-        // Validasi tipe file (hanya gambar)
-        if (!$file->isValid() || !$file->hasMoved() && !in_array($file->getMimeType(), ['image/png', 'image/jpeg', 'image/jpg'])) {
-            return redirect()->back()->with('error', 'File yang diunggah bukan gambar.');
-        }
-
-        // Pindahkan file ke folder 'public/uploads'
-        $newName = $file->getRandomName(); // Generate nama file random
-        $file->move(FCPATH . 'Gambar', $newName);
-
+        // Simpan data ke database
         $data = [
             'kode_buku' => $this->request->getPost('kode_buku'),
             'jenis' => $this->request->getPost('jenis'),
@@ -58,9 +59,15 @@ class BukuTanah extends BaseController
             'pemegang_hak' => $this->request->getPost('pemegang_hak'),
             'letak' => $this->request->getPost('letak'),
             'desa_id' => $this->request->getPost('desa_id'),
-            'gambar' => $newName // Nama file baru
         ];
+
+        // Jika file diunggah, tambahkan ke array data
+        if ($newName) {
+            $data['gambar'] = $newName;
+        }
+
         $this->BukuTanahModel->save($data);
+
         session()->setFlashdata('success', 'Data berhasil disimpan');
         return redirect()->to(base_url('bukuTanah'));
     }
