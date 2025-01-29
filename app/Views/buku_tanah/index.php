@@ -37,7 +37,13 @@
                 <tr>
                     <td class="text-center"><?= $no++; ?></td>
                     <td><?= $value['kode_buku']; ?></td>
-                    <td><img src="/Gambar/<?= $value['gambar']; ?>" width="50%"></td>
+                    <td>
+                        <?php if ($value['gambar'] !== null): ?>
+                            <img src="/Gambar/<?= $value['gambar']; ?>" width="50%">                
+                        <?php else: ?>
+                            Tidak ada
+                        <?php endif; ?>
+                    </td>
                     <td><?= $value['jenis']; ?></td>
                     <td><?= $value['luas']; ?></td>
                     <td><?= $value['pemegang_hak']; ?></td>
