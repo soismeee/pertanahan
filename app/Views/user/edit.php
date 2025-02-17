@@ -35,7 +35,16 @@
                     </div>
                     <div class="form-group">
                         <label>Bagian</label>
-                        <input type="text" name="bagian" class="form-control" placeholder="bagian" value="<?= $user['bagian']; ?>">
+                        <select class="form-control" name="bagian">
+                            <option value="Survei dan  Pemetaan" <?= $user['bagian'] == "Survei dan  Pemetaan" ? "selected" : "" ?>> Survei dan  Pemetaan </option>
+                            <option value="Penetapan Hak dan Pendaftaran" <?= $user['bagian'] == "Penetapan Hak dan Pendaftaran" ? "selected" : "" ?>> Penetapan Hak dan Pendaftaran </option>
+                            <option value="Penataan dan Pemberdayaan" <?= $user['bagian'] == "Penataan dan Pemberdayaan" ? "selected" : "" ?>> Penataan dan Pemberdayaan</option>
+                            <option value="Pengadaan Tanah dan Pengembangan" <?= $user['bagian'] == "Pengadaan Tanah dan Pengembangan" ? "selected" : "" ?>> Pengadaan Tanah dan Pengembangan </option>
+                            <option value="Pengendalian dan Penanganan Sengketa" <?= $user['bagian'] == "Pengendalian dan Penanganan Sengketa" ? "selected" : "" ?>> Pengendalian dan Penanganan Sengketa </option>
+                            <option value="Tata Usaha" <?= $user['bagian'] == "Tata Usaha" ? "selected" : "" ?>> Tata Usaha </option>
+                            <option value="Warkah" <?= $user['bagian'] == "Warkah" ? "selected" : "" ?>> Warkah </option>
+                            <option value="Loket" <?= $user['bagian'] == "Loket" ? "selected" : "" ?>> Loket </option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Level</label>

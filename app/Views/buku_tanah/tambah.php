@@ -39,7 +39,17 @@
                     </div>
                     <div class="form-group">
                         <label>Letak</label>
-                        <input type="text" name="letak" class="form-control" placeholder="letak" required>
+                        <select class="form-control" name="letak">
+                            <option disabled selected>-Pilih-</option>
+                            <option value="1-A">1-A</option>
+                            <option value="1-B">1-B</option>
+                            <option value="2-A">2-A</option>
+                            <option value="2-B">2-B</option>
+                            <option value="3-A">3-A</option>
+                            <option value="3-B">3-B</option>
+                            <option value="4-A">4-A</option>
+                            <option value="4-B">4-B</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Desa</label>

@@ -34,7 +34,17 @@
                     </div>
                     <div class="form-group">
                         <label>Bagian</label>
-                        <input type="text" name="bagian" class="form-control" placeholder="bagian">
+                        <select class="form-control" name="bagian">
+                            <option disabled selected>-Pilih-</option>
+                            <option value="Survei dan  Pemetaan">Survei dan  Pemetaan</option>
+                            <option value="Penetapan Hak dan Pendaftarann">Penetapan Hak dan Pendaftaran</option>
+                            <option value="Penataan dan Pemberdayaan">Penataan dan Pemberdayaan</option>
+                            <option value="Pengadaan Tanah dan Pengembangan">Pengadaan Tanah dan Pengembangan</option>
+                            <option value="Pengendalian dan Penanganan Sengketa">Pengendalian dan Penanganan Sengketa</option>
+                            <option value="Tata Usaha">Tata Usaha</option>
+                            <option value="Warkah">Warkah</option>
+                            <option value="Loket">Loket</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Level</label>
