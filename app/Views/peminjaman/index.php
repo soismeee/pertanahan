@@ -100,16 +100,19 @@
                     data.forEach((params, index) => {
                         let status = params.status;
                         let levelUser = `<?= session()->get('level'); ?>`;
-                        let isiStatus = '<span class="text-primary">Pinjam</span>';
+                        let isiStatus = '<span class="text-dark">Pengajuan</span>';
                         let isiTglKembali = "Belum kembali";
                         let isiAction = `<a href="<?= base_url('peminjaman/proses/') ?>${params.id_peminjaman}" class="btn btn-primary btn-xs">proses</i></a>`
 
                         if (status == "proses") {
-                            isiStatus = '<span class="text-warning">Proses</span>'
+                            isiStatus = '<span class="text-warning">Proses</span> <br /> Ket : buku sedang dicari'
+                        }
+                        if (status == "pinjam") {
+                            isiStatus = '<span class="text-primary">Pinjam</span>'
                         }
                         if (status == "tolak") {
-                            isiStatus = '<span class="text-danger">Tolak</span>'
-                            isiTglKembali = "Tidak dipinjam"
+                            isiStatus = '<span class="text-danger">Tolak</span> <br /> Ket : ' + params.keterangan
+                            isiTglKembali = "Tidak dipinjam" 
                         }
                         if (status == "selesai") {
                             isiStatus = '<span class="text-success">Kembali</span>'
@@ -130,7 +133,15 @@
                             `
                         }   
                         if (levelUser == "karyawan") {
-                            isiAction = `<a href="#" class="btn btn-primary btn-xs disabled">proses</i></a>`
+                            if (params.status == "selesai" || params.status == "tolak") {
+                                isiAction = `Selesai`
+                            }
+                            else if(params.status == "pinjam"){
+                                isiAction = `<a href="#" class="btn btn-primary btn-xs disabled">Pinjam</i></a>`
+                            }
+                            else{
+                                isiAction = `<a href="#" class="btn btn-primary btn-xs disabled">proses</i></a>`
+                            }
                             // if (status == "proses") {    
                             //     isiAction = `<a href="<?= base_url('peminjaman/cetakBukti/') ?>${params.id_peminjaman}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-print">Cetak</i></a>`
                             // }else{

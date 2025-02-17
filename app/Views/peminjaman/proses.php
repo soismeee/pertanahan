@@ -48,8 +48,11 @@
                                 <select name="status" id="status" class="form-control">
                                     <option selected disabled>Pilih status</option>
                                     <option value="proses">Proses</option>
+                                    <option value="pinjam">Pinjam</option>
                                     <option value="tolak">Tolak</option>
                                 </select>
+                                <input type="text" name="keterangan" id="keterangan" class="form-control" placeholder="Masukan keterangan jika di tolak" disabled>
+                                <br />
                             <?php elseif(session()->get('level') == 'admin') : ?>
                                 <select name="status" id="status" class="form-control">
                                     <option selected disabled>Pilih status</option>
@@ -66,5 +69,21 @@
           </div>
       </form>
   </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+        $(document).on('change', '#status', function(e){
+        e.preventDefault();
+        let value_jenis = $(this).val();
+        console.log(value_jenis);
+        
+        if (value_jenis == "tolak") {
+            $('#keterangan').attr('disabled', false);
+        } else {
+            $('#keterangan').attr('disabled', true);
+        }
+    });
+ </script>
 
 <?= $this->endSection(); ?>

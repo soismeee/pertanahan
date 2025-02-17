@@ -9,7 +9,7 @@ class PeminjamanModel extends Model
 
     protected $table            = 'peminjaman';
     protected $primaryKey       = 'id_peminjaman';
-    protected $allowedFields    = ['id_peminjaman', 'user_id', 'buku_tanah_id', 'jenis_permohonan', 'notaris', 'status', 'tanggal_peminjaman', 'tanggal_pengembalian'];
+    protected $allowedFields    = ['id_peminjaman', 'user_id', 'buku_tanah_id', 'jenis_permohonan', 'notaris', 'status', 'keterangan', 'tanggal_peminjaman', 'tanggal_pengembalian'];
     
     public function getPeminjaman($id = false)
     {
@@ -38,7 +38,8 @@ class PeminjamanModel extends Model
             ->join('users', 'users.id_user = peminjaman.user_id', 'left')
             ->join('buku_tanah', 'buku_tanah.id_buku_tanah = peminjaman.buku_tanah_id', 'left')
             ->join('desa', 'desa.id_desa = buku_tanah.desa_id', 'left')
-            ->join('kecamatan', 'kecamatan.id_kecamatan = desa.kecamatan_id', 'left');
+            ->join('kecamatan', 'kecamatan.id_kecamatan = desa.kecamatan_id', 'left')
+            ->orderBy('peminjaman.tanggal_peminjaman', 'DESC');
 
         if ($status !== "All") {
             $query->where('peminjaman.status', $status);

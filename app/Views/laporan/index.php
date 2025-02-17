@@ -7,7 +7,7 @@
           <!-- DONUT CHART -->
           <div class="box box-danger">
             <div class="box-header with-border">
-              <h3 class="box-title">Status Peminjaman</h3>
+              <h3 class="box-title">Proses Peminjaman</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -19,8 +19,8 @@
               <canvas id="Peminjaman" style="height: 227px; width: 454px;" height="283" width="567"></canvas>
             </div>
             <ul class="doughnut-legend">
-                <li><span style="background-color:#00a65a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> ACC</li>
-                <li><span style="background-color:#f56954">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Tolak</li>
+                <li><span style="background-color:#00a65a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> ACC = <?= $statusPinjamAcc; ?></li>
+                <li><span style="background-color:#f56954">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Tolak = <?= $statusPinjamTolak; ?></li>
             </ul>
             <!-- /.box-body -->
           </div>
@@ -42,8 +42,8 @@
               <canvas id="BukuTanah" style="height: 227px; width: 454px;" height="283" width="567"></canvas>
             </div>
             <ul class="doughnut-legend">
-                <li><span style="background-color:#f39c12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Pinjam</li>
-                <li><span style="background-color:#3c8dbc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Kembali</li>
+                <li><span style="background-color:#f39c12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Pinjam = <?= $statusBTPinjam; ?></li>
+                <li><span style="background-color:#3c8dbc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Kembali = <?= $statusBTKembali; ?></li>
             </ul>
             <!-- /.box-body -->
           </div>
@@ -210,13 +210,13 @@
             var piePeminjaman       = new Chart(Peminjaman)
             var pieP        = [
             {
-                value    : "<?= $statusPinjamAcc; ?>",
+                value    : "<?= $statusPinjamTolak; ?>",
                 color    : '#f56954',
                 highlight: '#f56954',
                 label    : 'TOLAK'
             },
             {
-                value    : "<?= $statusPinjamTolak; ?>",
+                value    : "<?= $statusPinjamAcc; ?>",
                 color    : '#00a65a',
                 highlight: '#00a65a',
                 label    : 'ACC'

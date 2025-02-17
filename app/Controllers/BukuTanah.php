@@ -54,7 +54,7 @@ class BukuTanah extends BaseController
         // Simpan data ke database
         $data = [
             'kode_buku' => $this->request->getPost('kode_buku'),
-            'jenis' => $this->request->getPost('jenis'),
+            'jenis' => $this->request->getPost('jenis') == "lainnya" ? $this->request->getPost('jenis_lain') : $this->request->getPost('jenis') ,
             'luas' => $this->request->getPost('luas'),
             'pemegang_hak' => $this->request->getPost('pemegang_hak'),
             'letak' => $this->request->getPost('letak'),

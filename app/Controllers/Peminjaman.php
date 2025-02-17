@@ -96,6 +96,7 @@ class Peminjaman extends BaseController
     {
         $data = [
             'status' => $this->request->getPost('status'),
+            'keterangan' => $this->request->getPost('keterangan'),
             'pengembalian' => date('Y-m-d')
         ];
         if ($this->request->getPost('status') == "selesai") {

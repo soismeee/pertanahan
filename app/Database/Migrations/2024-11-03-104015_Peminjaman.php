@@ -32,8 +32,12 @@ class Peminjaman extends Migration
             ],
             'status' => [
                 'type'       => 'ENUM',
-                'constraint' => ['pinjam', 'proses', 'selesai', 'tolak'],
-                'default'    => 'pinjam',
+                'constraint' => ['pengajuan', 'proses', 'pinjam', 'selesai', 'tolak'],
+                'default'    => 'pengajuan',
+            ],
+            'keterangan' => [
+                'type'    => 'TEXT',
+                'null'    => true,
             ],
             'tanggal_peminjaman' => [
                 'type'    => 'DATE',
